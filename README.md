@@ -1,20 +1,17 @@
-# Ember-cli-app-version
+# ember-cli-app-version addon
 
-This README outlines the details of collaborating on this Ember addon.
+Adds App version to Info tab in Ember Inspector using [`git describe`](http://git-scm.com/docs/git-describe) or package.json#version.
+
+![Ember Inspector Info Tab](https://www.evernote.com/shard/s51/sh/c2f52608-bc17-4d5c-ac76-dec044eeb2e2/2f08de0cfb77217502cfc3a9188d84bf)
 
 ## Installation
 
-* `git clone` this repository
-* `npm install`
-* `bower install`
-
-## Running
-
-* `ember server`
-* Visit your app at http://localhost:4200.
+* npm install --save ember-cli-app-version
 
 ## Running Tests
 
+* `git clone git@github.com:taras/ember-cli-app-version.git`
+* `npm install`
 * `ember test`
 * `ember test --server`
 
