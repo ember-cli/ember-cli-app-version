@@ -35,5 +35,8 @@
   ],
   "ember-addon": {
     "configPath": "tests/dummy/config"
+  },
+  "dependencies": {
+    "exec-sync": "^0.1.6"
   }
 }
