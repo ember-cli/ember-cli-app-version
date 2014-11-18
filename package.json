@@ -37,6 +37,6 @@
     "configPath": "tests/dummy/config"
   },
   "dependencies": {
-    "exec-sync": "^0.1.6"
+    "git-repo-version": "0.0.3"
   }
 }
