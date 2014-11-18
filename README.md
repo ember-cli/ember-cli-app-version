@@ -1,6 +1,7 @@
 # ember-cli-app-version addon
 
-Adds App version to Info tab in Ember Inspector using [`git describe`](http://git-scm.com/docs/git-describe) or package.json#version.
+Adds your Ember App's version to Info tab in Ember Inspector. The version is taken from your project's package.json#version.
+If you add build metadata to the version, this addon will automatically append SHA to the end of the version.
 
 ![Ember Inspector Info Tab](https://www.evernote.com/shard/s51/sh/c2f52608-bc17-4d5c-ac76-dec044eeb2e2/2f08de0cfb77217502cfc3a9188d84bf/res/3fb1d3d9-d809-48f6-9d3b-6e9a4af29892/skitch.png?resizeSmall&width=832)
 
