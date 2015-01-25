@@ -8,7 +8,7 @@ module.exports = {
     var config = this._super.config.apply(this, arguments);
 
     var version = require('git-repo-version')(null, this.project.root);
-    if (version) {
+    if (version && baseConfig.APP) {
       baseConfig.APP.name = this.project.pkg.name;
       baseConfig.APP.version = version;
     }
