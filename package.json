@@ -37,6 +37,6 @@
     "configPath": "tests/dummy/config"
   },
   "dependencies": {
-    "git-repo-version": "0.1.2"
+  "git-repo-version": "0.2.0"
   }
 }
