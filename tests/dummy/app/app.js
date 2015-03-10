@@ -13,4 +13,6 @@ var App = Ember.Application.extend({
 
 loadInitializers(App, config.modulePrefix);
 
+Ember.libraries.register((config.APP.name || '').classify(), config.APP.version);
+
 export default App;
