@@ -1,6 +1,7 @@
 {
   "name": "ember-cli-app-version",
   "version": "0.3.3",
+  "description": "Add App version number to Ember Inspector Info Tab",
   "directories": {
     "doc": "doc",
     "test": "tests"
