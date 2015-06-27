@@ -13,6 +13,7 @@ If you add build metadata to the version, this addon will automatically append S
 
 * `git clone git@github.com:taras/ember-cli-app-version.git`
 * `npm install`
+* `bower install`
 * `ember test`
 * `ember test --server`
 
