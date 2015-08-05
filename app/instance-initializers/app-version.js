@@ -1,15 +1,19 @@
-import config from '../config/environment';
 import Ember from 'ember';
+import config from '../config/environment';
 
-var classify = Ember.String.classify;
-var registered = false;
+const { String } = Ember;
+const { classify } = String;
+const { APP } = config;
+const { name } = APP;
+
+let registered = false;
 
 export default {
   name: 'App Version',
   initialize: function(application) {
-    if (!registered) {
-      var appName = classify(application.toString());
-      Ember.libraries.register(appName, config.APP.version);
+    if (!registered && name) {
+      var appName = classify(name);
+      Ember.libraries.register(name, config.APP.version);
       registered = true;
     }
   }
