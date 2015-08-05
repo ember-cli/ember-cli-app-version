@@ -2,7 +2,7 @@ import Ember from 'ember';
 
 const { classify } = Ember.String;
 
-export default function(name, version) {
+export default function initializerFactory(name, version) {
   let registered = false;
 
   return function() {
