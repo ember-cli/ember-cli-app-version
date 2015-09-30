@@ -1,9 +1,9 @@
 import Ember from 'ember';
 
-const { classify } = Ember.String;
+var classify = Ember.String.classify;
 
 export default function initializerFactory(name, version) {
-  let registered = false;
+  var registered = false;
 
   return function() {
     if (!registered && name && version) {
