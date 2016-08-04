@@ -11,6 +11,12 @@
     "build": "ember build",
     "test": "ember try:testall"
   },
+  "files": [
+    "addon/",
+    "app/",
+    "config/environment.js",
+    "index.js"
+  ],
   "repository": "https://github.com/embersherpa/ember-cli-app-version.git",
   "engines": {
     "node": ">= 0.12.0"
