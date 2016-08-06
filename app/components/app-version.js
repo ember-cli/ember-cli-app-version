@@ -7,5 +7,20 @@ var version = config.APP.version;
 
 export default AppVersionComponent.extend({
   version: version,
-  name: name
+  name: name,
+
+  versionPure: function() {
+     if (version.split('+')[0]) {
+       return version.split('+')[0];
+     }
+     return '';
+   }.property('version'),
+
+   versionGit: function() {
+     if (version.split('+')[1]) {
+       return version.split('+')[1];
+     }
+     return '';
+   }.property('version')
+
 });
