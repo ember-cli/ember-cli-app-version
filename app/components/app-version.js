@@ -2,10 +2,14 @@ import AppVersionComponent from 'ember-cli-app-version/components/app-version';
 
 import config from '../config/environment';
 
-var name = config.APP.name;
-var version = config.APP.version;
+const {
+  APP: {
+    name,
+    version
+  }
+} = config;
 
 export default AppVersionComponent.extend({
-  version: version,
-  name: name
+  version,
+  name
 });
