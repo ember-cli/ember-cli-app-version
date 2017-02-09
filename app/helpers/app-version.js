@@ -7,7 +7,15 @@ const {
   }
 } = config;
 
-export function appVersion() {
+export function appVersion(_, hash = {}) {
+  if (hash.hideSha) {
+    return version.match(/\d[.]\d[.]\d/)[0];
+  }
+
+  if (hash.hideVersion) {
+    return version.match(/[a-z\d]{8}/)[0];
+  }
+
   return version;
 }
 
