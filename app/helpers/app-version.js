@@ -1,5 +1,6 @@
 import Ember from 'ember';
 import config from '../config/environment';
+import regexp from 'ember-cli-app-version/utils/regexp';
 
 const {
   APP: {
@@ -7,13 +8,18 @@ const {
   }
 } = config;
 
+const {
+  shaRegExp,
+  versionRegExp
+} = regexp;
+
 export function appVersion(_, hash = {}) {
   if (hash.hideSha) {
-    return version.match(/\d[.]\d[.]\d/)[0];
+    return version.match(versionRegExp)[0];
   }
 
   if (hash.hideVersion) {
-    return version.match(/[a-z\d]{8}/)[0];
+    return version.match(shaRegExp)[0];
   }
 
   return version;
