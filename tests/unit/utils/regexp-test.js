@@ -1,10 +1,5 @@
 import { module, test } from 'qunit';
-import regexp from 'dummy/utils/regexp';
-
-const {
-  shaRegExp,
-  versionRegExp
-} = regexp;
+import { shaRegExp, versionRegExp } from 'ember-cli-app-version/utils/regexp';
 
 module('Unit | Utility | regexp');
 

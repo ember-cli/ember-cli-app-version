@@ -1,12 +1,6 @@
 import { moduleForComponent, test } from 'ember-qunit';
 import hbs from 'htmlbars-inline-precompile';
-import regexp from 'ember-cli-app-version/utils/regexp';
-
-const {
-  shaRegExp,
-  versionRegExp
-} = regexp;
-
+import { shaRegExp, versionRegExp } from 'ember-cli-app-version/utils/regexp';
 
 moduleForComponent('Integration | Helper | {{app-version}}', {
   integration: true

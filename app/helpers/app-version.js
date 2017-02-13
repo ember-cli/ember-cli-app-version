@@ -1,17 +1,12 @@
 import Ember from 'ember';
 import config from '../config/environment';
-import regexp from 'ember-cli-app-version/utils/regexp';
+import { shaRegExp, versionRegExp } from 'ember-cli-app-version/utils/regexp';
 
 const {
   APP: {
     version
   }
 } = config;
-
-const {
-  shaRegExp,
-  versionRegExp
-} = regexp;
 
 export function appVersion(_, hash = {}) {
   if (hash.hideSha) {
