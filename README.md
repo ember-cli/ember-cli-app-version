@@ -9,6 +9,13 @@ If you add build metadata to the version, this addon will automatically append S
 
 This addon provides `{{app-version}}` helper that allows you to show your current app version in your app.
 
+The addon has flags to display parts of the version:
+
+* `{{app-version hideSha=true}} // => 2.0.1`
+* `{{app-version hideVersion=true}} // => <git SHA>`
+
+Flags are `false` by default.
+
 ## Installation
 
 * ember install ember-cli-app-version
