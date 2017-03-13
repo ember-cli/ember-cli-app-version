@@ -1,6 +1,5 @@
 import Ember from 'ember';
 import config from '../config/environment';
-import { shaRegExp, versionRegExp } from 'ember-cli-app-version/utils/regexp';
 
 const {
   APP: {
@@ -8,16 +7,22 @@ const {
   }
 } = config;
 
-export function appVersion(_, hash = {}) {
-  if (hash.hideSha) {
-    return version.match(versionRegExp)[0];
+export function makeHelper(version) {
+  return function appVersion(_, hash = {}) {
+    let versionArray = version.split('+')
+    let plainVersion = versionArray[0]
+    let buildHash = ''
+    if (versionArray.length > 1) {
+      buildHash = versionArray[1]
+    }
+    if (hash.hideSha) {
+      return plainVersion;
+    } else if (hash.hideVersion) {
+      return buildHash;
+    } else {
+      return version;
+    }
   }
-
-  if (hash.hideVersion) {
-    return version.match(shaRegExp)[0];
-  }
-
-  return version;
 }
 
-export default Ember.Helper.helper(appVersion);
+export default Ember.Helper.helper(makeHelper(version));
