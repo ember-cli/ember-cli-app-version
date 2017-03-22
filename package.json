@@ -19,7 +19,7 @@
     "index.js"
   ],
   "engines": {
-    "node": ">= 0.10.0"
+    "node": ">= 4"
   },
   "author": "Taras Mankovski <taras@embersherpa.com>",
   "license": "MIT",
@@ -29,7 +29,7 @@
     "ember-cli": "2.7.0",
     "ember-cli-dependency-checker": "^1.2.0",
     "ember-cli-htmlbars": "^1.0.3",
-    "ember-cli-htmlbars-inline-precompile": "^0.3.1",
+    "ember-cli-htmlbars-inline-precompile": "^0.4.0-beta.2",
     "ember-cli-inject-live-reload": "^1.4.0",
     "ember-cli-jshint": "^1.0.0",
     "ember-cli-qunit": "^2.1.0",
@@ -49,7 +49,7 @@
     "ember-addon"
   ],
   "dependencies": {
-    "ember-cli-babel": "^5.1.6",
+    "ember-cli-babel": "^6.0.0-beta.7",
     "git-repo-version": "0.4.1",
     "ember-cli-htmlbars": "^1.0.0"
   },
