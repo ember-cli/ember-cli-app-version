@@ -24,8 +24,9 @@ When running on Heroku the `.git` folder is not present, making it impossible to
 // Heroku Git Hash support
 if (process.env.SOURCE_VERSION) {
   const pkg = require('../package.json');
+  const hash = process.env.SOURCE_VERSION.substr(0, 7);
   ENV['ember-cli-app-version'] = {
-    version: `${pkg.version}+${process.env.SOURCE_VERSION}`
+    version: `${pkg.version}+${hash}`
   };
 }
 ```
