@@ -11,6 +11,7 @@ test('visiting /', function(assert) {
     assert.equal(currentURL(), '/');
 
     assert.ok(config.APP.version, 'app version is present');
-    assert.equal($('p.message').text().trim(), `Your app version is ${config.APP.version}`);
+
+    assert.equal(document.querySelector('p.message').textContent, `Your app version is ${config.APP.version}`);
   });
 });
