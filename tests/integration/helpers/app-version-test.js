@@ -9,7 +9,7 @@ moduleForComponent('Integration | Helper | {{app-version}}', {
 test('it displays only app version', function(assert) {
   assert.expect(3);
 
-  this.render(hbs`{{app-version hideSha=true hideDate=true}}`);
+  this.render(hbs`{{app-version hideSha=true}}`);
 
   assert.ok(this.$().text().match(versionRegExp), 'Displays version.');
   assert.notOk(this.$().text().match(shaRegExp), 'Does not display git sha.');
@@ -19,7 +19,7 @@ test('it displays only app version', function(assert) {
 test('it displays only git sha', function(assert) {
   assert.expect(3);
 
-  this.render(hbs`{{app-version hideVersion=true hideDate=true}}`);
+  this.render(hbs`{{app-version hideVersion=true}}`);
 
   assert.ok(this.$().text().match(shaRegExp), 'Displays git sha.');
   assert.notOk(this.$().text().match(versionRegExp), 'Does not display version.');
@@ -29,7 +29,7 @@ test('it displays only git sha', function(assert) {
 test('it displays only git date', function(assert) {
   assert.expect(3);
 
-  this.render(hbs`{{app-version hideSha=true hideVersion=true hideSha=true}}`);
+  this.render(hbs`{{app-version hideSha=true hideVersion=true showDate=true}}`);
 
   assert.ok(this.$().text().match(dateRegExp), 'Displays git date.');
   assert.notOk(this.$().text().match(shaRegExp), 'Does not display git sha.');

@@ -22,7 +22,7 @@ export function appVersion(_, hash = {}) {
     displayVersion += version.match(shaRegExp)[0];
   }
 
-  if (!hash.hideDate) {
+  if (hash.showDate) {
     if (displayVersion) {
       displayVersion += " ";
     }
