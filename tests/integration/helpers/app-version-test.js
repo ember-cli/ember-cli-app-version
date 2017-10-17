@@ -12,8 +12,8 @@ test('it displays only app version', function(assert) {
   this.render(hbs`{{app-version hideSha=true hideDate=true}}`);
 
   assert.ok(this.$().text().match(versionRegExp), 'Displays version.');
-  assert.ok(!this.$().text().match(shaRegExp), 'Does not display git sha.');
-  assert.ok(!this.$().text().match(dateRegExp), 'Does not display git date.');
+  assert.notOk(this.$().text().match(shaRegExp), 'Does not display git sha.');
+  assert.notOk(this.$().text().match(dateRegExp), 'Does not display git date.');
 });
 
 test('it displays only git sha', function(assert) {
@@ -22,8 +22,8 @@ test('it displays only git sha', function(assert) {
   this.render(hbs`{{app-version hideVersion=true hideDate=true}}`);
 
   assert.ok(this.$().text().match(shaRegExp), 'Displays git sha.');
-  assert.ok(!this.$().text().match(versionRegExp), 'Does not display version.');
-  assert.ok(!this.$().text().match(dateRegExp), 'Does not display git date.');
+  assert.notOk(this.$().text().match(versionRegExp), 'Does not display version.');
+  assert.notOk(this.$().text().match(dateRegExp), 'Does not display git date.');
 });
 
 test('it displays only git date', function(assert) {
@@ -32,6 +32,6 @@ test('it displays only git date', function(assert) {
   this.render(hbs`{{app-version hideSha=true hideVersion=true hideSha=true}}`);
 
   assert.ok(this.$().text().match(dateRegExp), 'Displays git date.');
-  assert.ok(!this.$().text().match(shaRegExp), 'Does not display git sha.');
-  assert.ok(!this.$().text().match(versionRegExp), 'Does not display version.');
+  assert.notOk(this.$().text().match(shaRegExp), 'Does not display git sha.');
+  assert.notOk(this.$().text().match(versionRegExp), 'Does not display version.');
 });
