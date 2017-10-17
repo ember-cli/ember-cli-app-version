@@ -8,9 +8,11 @@ module.exports = {
     var config = this._super.config.apply(this, arguments);
 
     var version = require('git-repo-version')(null, this.project.root);
-    if (version && baseConfig.APP) {
+    let gitCommand = "git log --max-count=1 --format='%aI'";
+    let gitCommitDate = require('child_process').execSync(gitCommand).toString().trim();
+    if (version && gitCommitDate && baseConfig.APP) {
       baseConfig.APP.name = this.project.pkg.name;
-      baseConfig.APP.version = version;
+      baseConfig.APP.version = version + " " + gitCommitDate;
     }
 
     return config;
