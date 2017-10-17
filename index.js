@@ -1,18 +1,22 @@
 /* global module, require */
 'use strict';
 var fs = require('fs');
+var getRepoVersion = require('git-repo-version');
 
 module.exports = {
   name: 'ember-cli-app-version',
   config: function(env, baseConfig) {
     var config = this._super.config.apply(this, arguments);
 
-    var version = require('git-repo-version')(null, this.project.root);
-    let gitCommand = "git log --max-count=1 --format='%aI'";
-    let gitCommitDate = require('child_process').execSync(gitCommand).toString().trim();
-    if (version && gitCommitDate && baseConfig.APP) {
+    var version = getRepoVersion({
+      shaLength: 8,
+      includeDate: true,
+      projectRoot: this.project.root,
+    });
+
+    if (version && baseConfig.APP) {
       baseConfig.APP.name = this.project.pkg.name;
-      baseConfig.APP.version = version + " " + gitCommitDate;
+      baseConfig.APP.version = version;
     }
 
     return config;

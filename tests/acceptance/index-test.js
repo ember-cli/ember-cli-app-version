@@ -12,7 +12,7 @@ test('visiting /', function(assert) {
 
     assert.ok(config.APP.version, 'app version is present');
 
-    const dateLength = 26;
+    const dateLength = 25;
     let versionWithoutDate = config.APP.version.slice(0, -dateLength);
     assert.equal(find('.message').text(), `Your app version is ${versionWithoutDate}`);
   });

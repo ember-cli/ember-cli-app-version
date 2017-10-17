@@ -21,7 +21,7 @@ test('git sha reg ex matches expected strings', function(assert) {
 test('git date reg ex matches expected strings', function(assert) {
   assert.expect(3);
 
-  assert.ok('2017-08-16T15:51:44-04:00'.match(dateRegExp), 'Matches expected pattern.');
-  assert.ok('2017-08-16T15:51:44+04:00'.match(dateRegExp), 'Matches expected pattern.');
+  assert.ok('2016-10-24T18:26:53.000Z'.match(dateRegExp), 'Matches expected pattern.');
+  assert.ok('2019-10-01T01:26:53.243Z'.match(dateRegExp), 'Matches expected pattern.');
   assert.notOk('2.0.1'.match(dateRegExp), 'Does not match version pattern.');
 });

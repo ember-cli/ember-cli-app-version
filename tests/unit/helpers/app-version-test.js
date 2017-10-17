@@ -15,7 +15,7 @@ test('it returns app version', function(assert) {
 
   let result = appVersion();
 
-  const dateLength = 26;
+  const dateLength = 25;
   let versionWithoutDate = config.APP.version.slice(0, -dateLength);
   assert.equal(result, versionWithoutDate, 'Returns app version.');
 });
