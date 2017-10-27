@@ -16,6 +16,21 @@ The addon has flags to display parts of the version:
 
 Flags are `false` by default.
 
+## Heroku
+
+When running on Heroku the `.git` folder is not present, making it impossible to fetch the `git SHA`. A workaround for this is adding the below in your `config/environment.js`:
+
+```
+// Heroku Git Hash support
+if (process.env.SOURCE_VERSION) {
+  const pkg = require('../package.json');
+  const hash = process.env.SOURCE_VERSION.substr(0, 7);
+  ENV['ember-cli-app-version'] = {
+    version: `${pkg.version}+${hash}`
+  };
+}
+```
+
 ## Installation
 
 * ember install ember-cli-app-version
