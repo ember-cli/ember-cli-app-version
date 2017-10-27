@@ -48,7 +48,7 @@
   ],
   "dependencies": {
     "ember-cli-babel": "^6.8.0",
-    "git-repo-version": "0.4.1"
+    "git-repo-version": "1.0.0"
   },
   "ember-addon": {
     "configPath": "tests/dummy/config"

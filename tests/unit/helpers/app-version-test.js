@@ -15,7 +15,9 @@ test('it returns app version', function(assert) {
 
   let result = appVersion();
 
-  assert.equal(result, version, 'Returns app version.');
+  const dateLength = 25;
+  let versionWithoutDate = config.APP.version.slice(0, -dateLength);
+  assert.equal(result, versionWithoutDate, 'Returns app version.');
 });
 
 test('it returns only app version', function(assert) {
@@ -31,5 +33,13 @@ test('it returns only git sha', function(assert) {
 
   let result = appVersion([], { hideVersion: true });
 
-  assert.equal(result, version.split('+')[1], 'Returns git sha without app version.');
+  assert.equal(result, version.split('+')[1].substring(0, 8), 'Returns git sha without app version.');
+});
+
+test('it returns only git date', function(assert) {
+  assert.expect(1);
+
+  let result = appVersion([], { hideVersion: true, hideSha: true, showDate: true });
+
+  assert.equal(result, version.split(' ')[1], 'Returns git date without app version.');
 });

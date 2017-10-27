@@ -12,6 +12,8 @@ test('visiting /', function(assert) {
 
     assert.ok(config.APP.version, 'app version is present');
 
-    assert.equal(document.querySelector('p.message').textContent, `Your app version is ${config.APP.version}`);
+    const dateLength = 25;
+    let versionWithoutDate = config.APP.version.slice(0, -dateLength);
+    assert.equal(find('.message').text(), `Your app version is ${versionWithoutDate}`);
   });
 });
