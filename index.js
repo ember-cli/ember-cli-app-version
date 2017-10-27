@@ -8,17 +8,23 @@ module.exports = {
   config: function(env, baseConfig) {
     var config = this._super.config.apply(this, arguments);
 
-    var version = getRepoVersion({
-      shaLength: 8,
-      includeDate: true,
-      projectRoot: this.project.root,
-    });
+    baseConfig.APP.name = this.project.pkg.name;
+ 
+    if (baseConfig[this.name] && baseConfig[this.name].version) {
+      baseConfig.APP.version = baseConfig[this.name].version;
+      return config;
+    } else {
+       var version = getRepoVersion({
+        shaLength: 8,
+        includeDate: true,
+        projectRoot: this.project.root,
+      });
 
-    if (version && baseConfig.APP) {
-      baseConfig.APP.name = this.project.pkg.name;
-      baseConfig.APP.version = version;
+      if (version && baseConfig.APP) {
+        baseConfig.APP.version = version;
+      }
     }
-
+    
     return config;
   }
 };
