@@ -1,11 +1,14 @@
 /* global module, require */
 'use strict';
-var fs = require('fs');
 
 module.exports = {
   name: 'ember-cli-app-version',
   config: function(env, baseConfig) {
     var config = this._super.config.apply(this, arguments);
+
+    if (!baseConfig.APP) {
+      return config;
+    }
 
     baseConfig.APP.name = this.project.pkg.name;
 
