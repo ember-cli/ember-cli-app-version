@@ -1,25 +1,57 @@
 import { moduleForComponent, test } from 'ember-qunit';
 import hbs from 'htmlbars-inline-precompile';
-import { shaRegExp, versionRegExp } from 'ember-cli-app-version/utils/regexp';
+import { shaRegExp, versionRegExp, versionExtendedRegExp } from 'ember-cli-app-version/utils/regexp';
 
 moduleForComponent('Integration | Helper | {{app-version}}', {
   integration: true
 });
 
-test('it displays only app version', function(assert) {
+test('it displays only app version (backwards compatible)', function(assert) {
   assert.expect(2);
 
   this.render(hbs`{{app-version hideSha=true}}`);
 
   assert.ok(this.$().text().match(versionRegExp), 'Displays version.');
+  assert.ok(!this.$().text().match(versionExtendedRegExp), 'Does not display version extended.');
   assert.ok(!this.$().text().match(shaRegExp), 'Does not display git sha.');
 });
 
-test('it displays only git sha', function(assert) {
+test('it displays only app version', function(assert) {
+  assert.expect(2);
+
+  this.render(hbs`{{app-version versionOnly=true}}`);
+
+  assert.ok(this.$().text().match(versionRegExp), 'Displays version.');
+  assert.ok(!this.$().text().match(versionExtendedRegExp), 'Does not display version extended.');
+  assert.ok(!this.$().text().match(shaRegExp), 'Does not display git sha.');
+});
+
+test('it displays only app version extended', function(assert) {
+  assert.expect(2);
+
+  this.render(hbs`{{app-version versionOnly=true showExtended=true}}`);
+
+  assert.ok(this.$().text().match(versionRegExp), 'Displays version.');
+  assert.ok(this.$().text().match(versionExtendedRegExp), 'Displays version extended.');
+  assert.ok(!this.$().text().match(shaRegExp), 'Does not display git sha.');
+});
+
+test('it displays only git sha (backwards compatible)', function(assert) {
   assert.expect(2);
 
   this.render(hbs`{{app-version hideVersion=true}}`);
 
   assert.ok(this.$().text().match(shaRegExp), 'Displays git sha.');
+  assert.ok(!this.$().text().match(versionExtendedRegExp), 'Does not display version extended.');
+  assert.ok(!this.$().text().match(versionRegExp), 'Does not display version.');
+});
+
+test('it displays only git sha', function(assert) {
+  assert.expect(2);
+
+  this.render(hbs`{{app-version shaOnly=true}}`);
+
+  assert.ok(this.$().text().match(shaRegExp), 'Displays git sha.');
+  assert.ok(!this.$().text().match(versionExtendedRegExp), 'Does not display version extended.');
   assert.ok(!this.$().text().match(versionRegExp), 'Does not display version.');
 });
