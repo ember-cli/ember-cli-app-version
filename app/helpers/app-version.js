@@ -13,12 +13,12 @@ export function makeHelper(version) {
     // e.g. 1.0.0-alpha.1+4jds75hf
 
     // Allow use of 'hideSha' and 'hideVersion' For backwards compatibility
-    hash.versionOnly = hash.versionOnly || hash.hideSha;
-    hash.shaOnly = hash.shaOnly || hash.hideVersion;
+    let versionOnly = hash.versionOnly || hash.hideSha;
+    let shaOnly = hash.shaOnly || hash.hideVersion;
 
     let match = null;
 
-    if (hash.versionOnly) {
+    if (versionOnly) {
       if (hash.showExtended) {
         match = version.match(versionExtendedRegExp); // 1.0.0-alpha.1
       } else {
@@ -26,7 +26,7 @@ export function makeHelper(version) {
       }
     }
 
-    if (hash.shaOnly) {
+    if (shaOnly) {
       match = version.match(shaRegExp); // 4jds75hf
     }
 
