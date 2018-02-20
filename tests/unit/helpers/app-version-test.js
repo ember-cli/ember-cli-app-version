@@ -4,8 +4,12 @@ import { module, test } from 'qunit';
 const versionOnlyString = '10.20.3';
 const extendedTagOnlyString = 'alpha.15';
 const shaOnlyString = 'deadb33f';
+
 const versionString = versionOnlyString+'-'+extendedTagOnlyString+'+'+shaOnlyString;
 const appVersion = makeHelper(versionString);
+
+const standardVersionString = versionOnlyString+'+'+shaOnlyString;
+const standardAppVersion = makeHelper(standardVersionString);
 
 module('Unit | Helper | app version');
 
@@ -39,6 +43,14 @@ test('it returns only app version extended', function(assert) {
   let result = appVersion([], { versionOnly: true, showExtended: true });
 
   assert.equal(result, versionOnlyString+'-'+extendedTagOnlyString, 'Returns app version extended without git sha.');
+});
+
+test('it returns only app version (falls back when no extended)', function(assert) {
+  assert.expect(1);
+
+  let result = standardAppVersion([], { versionOnly: true, showExtended: true });
+
+  assert.equal(result, versionOnlyString, 'Returns app version without git sha.');
 });
 
 test('it returns only git sha (backwards compatible)', function(assert) {

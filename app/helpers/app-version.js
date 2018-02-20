@@ -21,7 +21,9 @@ export function makeHelper(version) {
     if (versionOnly) {
       if (hash.showExtended) {
         match = version.match(versionExtendedRegExp); // 1.0.0-alpha.1
-      } else {
+      }
+      // Fallback to just version
+      if (!match) {
         match = version.match(versionRegExp); // 1.0.0
       }
     }
