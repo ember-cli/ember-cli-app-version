@@ -15,12 +15,12 @@ test('version reg ex matches expected strings', function(assert) {
 test('version extended reg ex matches expected strings', function(assert) {
   assert.expect(6);
 
-  assert.ok('2.0.1-alpha'.match(versionRegExp), 'Matches expected pattern.');
-  assert.ok('2.20.1-alpha.15'.match(versionRegExp), 'Matches expected pattern.');
-  assert.ok(!'1.1.1-alpha.'.match(versionRegExp), 'Does not match hanging period.');
-  assert.ok(!'1.1.1-alpha.abc'.match(versionRegExp), 'Does not match letters after extended tag period.');
-  assert.ok(!'a.b.c-alpha.15'.match(versionRegExp), 'Does not match letters.');
-  assert.ok(!'git12sha'.match(versionRegExp), 'Does not match sha.');
+  assert.ok('2.0.1-alpha'.match(versionExtendedRegExp), 'Matches expected pattern.');
+  assert.ok('2.20.1-alpha.15'.match(versionExtendedRegExp), 'Matches expected pattern.');
+  assert.ok(!'1.1.1-alpha.'.match(versionExtendedRegExp), 'Does not match hanging period.');
+  assert.ok(!'1.1.1-alpha.abc'.match(versionExtendedRegExp), 'Does not match letters after extended tag period.');
+  assert.ok(!'a.b.c-alpha.15'.match(versionExtendedRegExp), 'Does not match letters.');
+  assert.ok(!'git12sha'.match(versionExtendedRegExp), 'Does not match sha.');
 });
 
 test('git sha reg ex matches expected strings', function(assert) {

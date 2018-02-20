@@ -16,19 +16,21 @@ export function makeHelper(version) {
     hash.versionOnly = hash.versionOnly || hash.hideSha;
     hash.shaOnly = hash.shaOnly || hash.hideVersion;
 
+    let match = null;
+
     if (hash.versionOnly) {
       if (hash.showExtended) {
-        return version.match(versionExtendedRegExp)[0]; // 1.0.0-alpha.1
+        match = version.match(versionExtendedRegExp); // 1.0.0-alpha.1
       } else {
-        return version.match(versionRegExp)[0]; // 1.0.0
+        match = version.match(versionRegExp); // 1.0.0
       }
     }
 
     if (hash.shaOnly) {
-      return version.match(shaRegExp)[0]; // 4jds75hf
+      match = version.match(shaRegExp); // 4jds75hf
     }
 
-    return version;
+    return match?match[0]:version;
   };
 }
 
