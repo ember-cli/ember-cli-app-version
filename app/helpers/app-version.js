@@ -1,4 +1,4 @@
-import Ember from 'ember';
+import { helper } from '@ember/component/helper';
 import config from '../config/environment';
 import { shaRegExp, versionRegExp } from 'ember-cli-app-version/utils/regexp';
 
@@ -20,4 +20,4 @@ export function appVersion(_, hash = {}) {
   return version;
 }
 
-export default Ember.Helper.helper(appVersion);
+export default helper(appVersion);

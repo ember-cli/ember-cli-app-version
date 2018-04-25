@@ -1,10 +1,9 @@
-/* global module, require */
 'use strict';
 
 module.exports = {
   name: 'ember-cli-app-version',
-  config: function(env, baseConfig) {
-    var config = this._super.config.apply(this, arguments);
+  config(env, baseConfig) {
+    let config = this._super.config.apply(this, arguments);
 
     if (!baseConfig.APP) {
       return config;
@@ -17,7 +16,7 @@ module.exports = {
       return config;
     }
 
-    var version = require('git-repo-version')(null, this.project.root);
+    let version = require('git-repo-version')(null, this.project.root);
     if (version && baseConfig.APP) {
       baseConfig.APP.version = version;
     }
