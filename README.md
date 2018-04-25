@@ -1,4 +1,4 @@
-# ember-cli-app-version [![Build Status](https://travis-ci.org/EmberSherpa/ember-cli-app-version.svg?branch=master)](https://travis-ci.org/EmberSherpa/ember-cli-app-version) ![[EmberObserver Badge](http://emberobserver.com/addons/ember-cli-app-version)](http://emberobserver.com/badges/ember-cli-app-version.svg)
+# ember-cli-app-version [![Build Status](https://travis-ci.org/ember-cli/ember-cli-app-version.svg?branch=master)](https://travis-ci.org/ember-cli/ember-cli-app-version) ![[EmberObserver Badge](http://emberobserver.com/addons/ember-cli-app-version)](http://emberobserver.com/badges/ember-cli-app-version.svg)
 
 Adds your Ember App's version to Info tab in Ember Inspector. The version is taken from your project's package.json#version.
 If you add build metadata to the version, this addon will automatically append SHA to the end of the version.
@@ -37,7 +37,7 @@ if (process.env.SOURCE_VERSION) {
 
 ## Running Tests
 
-* `git clone git@github.com:EmberSherpa/ember-cli-app-version.git`
+* `git clone git@github.com:ember-cli/ember-cli-app-version.git`
 * `npm install`
 * `bower install`
 * `ember test`
