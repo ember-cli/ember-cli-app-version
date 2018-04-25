@@ -11,7 +11,7 @@ This addon provides `{{app-version}}` helper that allows you to show your curren
 
 The addon has flags to display parts of the version:
 
-* `{{app-version hideSha=true}} // => 2.0.1`
+* `{{app-version hideSha=true}} // => 2.10.1`
 * `{{app-version hideVersion=true}} // => <git SHA>`
 
 Flags are `false` by default.
