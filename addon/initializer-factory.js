@@ -1,7 +1,7 @@
 import Ember from 'ember';
+import { classify } from '@ember/string';
 
-const { 
-  String: { classify },
+const {
   libraries
 } = Ember;
 
@@ -10,7 +10,7 @@ export default function initializerFactory(name, version) {
 
   return function() {
     if (!registered && name && version) {
-      var appName = classify(name);
+      let appName = classify(name);
       libraries.register(appName, version);
       registered = true;
     }
