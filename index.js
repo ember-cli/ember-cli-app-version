@@ -30,7 +30,7 @@ function gitRepoVersion(options) {
   var authorDate = includeDate ? ' ' + info.authorDate : '';
 
   return prefix + sha + authorDate;
-};
+}
 
 module.exports = {
   name: 'ember-cli-app-version',
