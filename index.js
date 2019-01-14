@@ -5,13 +5,13 @@ const path = require('path');
 
 function gitRepoVersion(options) {
   options = options || {};
-  var shaLength = options.shaLength != null ? options.shaLength : 8;
-  var includeDate = options.includeDate || false;
-  var projectPath = options.projectPath || process.cwd();
-  var info = getGitInfo(projectPath);
-  var packageVersion  = require(path.join(projectPath, 'package.json')).version;
+  let shaLength = options.shaLength != null ? options.shaLength : 8;
+  let includeDate = options.includeDate || false;
+  let projectPath = options.projectPath || process.cwd();
+  let info = getGitInfo(projectPath);
+  let packageVersion  = require(path.join(projectPath, 'package.json')).version;
 
-  var prefix;
+  let prefix;
   if (info.tag && !(packageVersion && info.tag.includes(packageVersion))) {
     prefix = info.tag;
   } else if (packageVersion) {
@@ -22,12 +22,12 @@ function gitRepoVersion(options) {
     prefix = 'DETACHED_HEAD';
   }
 
-  var sha = '';
+  let sha = '';
   if (shaLength > 0 && info.sha) {
     sha = '+' +  info.sha.substring(0, shaLength);
   }
 
-  var authorDate = includeDate ? ' ' + info.authorDate : '';
+  let authorDate = includeDate ? ' ' + info.authorDate : '';
 
   return prefix + sha + authorDate;
 }
