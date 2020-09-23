@@ -10,69 +10,69 @@ const versionString = versionOnlyString+'-'+extendedTagOnlyString+'+'+shaOnlyStr
 const standardVersionString = versionOnlyString+'+'+shaOnlyString;
 const oldVersion = config.APP.version;
 
-module('Unit | Helper | app version', {
-  afterEach() {
+module('Unit | Helper | app version', function(hooks) {
+  hooks.afterEach(function() {
     config.APP.version = oldVersion;
-  }
-});
+  });
 
-test('it returns app version', function(assert) {
-  assert.expect(1);
-  config.APP.version = versionString;
+  test('it returns app version', function(assert) {
+    assert.expect(1);
+    config.APP.version = versionString;
 
-  assert.equal(appVersion(), versionString, 'Returns app version.');
-});
+    assert.equal(appVersion(), versionString, 'Returns app version.');
+  });
 
-test('it returns only app version (backwards compatible)', function(assert) {
-  assert.expect(1);
+  test('it returns only app version (backwards compatible)', function(assert) {
+    assert.expect(1);
 
-  config.APP.version = versionString;
-  let result = appVersion([], { hideSha: true });
+    config.APP.version = versionString;
+    let result = appVersion([], { hideSha: true });
 
-  assert.equal(result, versionOnlyString, 'Returns app version without git sha.');
-});
+    assert.equal(result, versionOnlyString, 'Returns app version without git sha.');
+  });
 
-test('it returns only app version', function(assert) {
-  assert.expect(1);
+  test('it returns only app version', function(assert) {
+    assert.expect(1);
 
-  config.APP.version = versionString;
-  let result = appVersion([], { versionOnly: true });
+    config.APP.version = versionString;
+    let result = appVersion([], { versionOnly: true });
 
-  assert.equal(result, versionOnlyString, 'Returns app version without git sha.');
-});
+    assert.equal(result, versionOnlyString, 'Returns app version without git sha.');
+  });
 
-test('it returns only app version extended', function(assert) {
-  assert.expect(1);
+  test('it returns only app version extended', function(assert) {
+    assert.expect(1);
 
-  config.APP.version = versionString;
-  let result = appVersion([], { versionOnly: true, showExtended: true });
+    config.APP.version = versionString;
+    let result = appVersion([], { versionOnly: true, showExtended: true });
 
-  assert.equal(result, versionOnlyString+'-'+extendedTagOnlyString, 'Returns app version extended without git sha.');
-});
+    assert.equal(result, versionOnlyString+'-'+extendedTagOnlyString, 'Returns app version extended without git sha.');
+  });
 
-test('it returns only app version (falls back when no extended)', function(assert) {
-  assert.expect(1);
+  test('it returns only app version (falls back when no extended)', function(assert) {
+    assert.expect(1);
 
-  config.APP.version = standardVersionString;
-  let result = appVersion([], { versionOnly: true, showExtended: true });
+    config.APP.version = standardVersionString;
+    let result = appVersion([], { versionOnly: true, showExtended: true });
 
-  assert.equal(result, versionOnlyString, 'Returns app version without git sha.');
-});
+    assert.equal(result, versionOnlyString, 'Returns app version without git sha.');
+  });
 
-test('it returns only git sha (backwards compatible)', function(assert) {
-  assert.expect(1);
+  test('it returns only git sha (backwards compatible)', function(assert) {
+    assert.expect(1);
 
-  config.APP.version = versionString;
-  let result = appVersion([], { hideVersion: true });
+    config.APP.version = versionString;
+    let result = appVersion([], { hideVersion: true });
 
-  assert.equal(result, shaOnlyString, 'Returns git sha without app version.');
-});
+    assert.equal(result, shaOnlyString, 'Returns git sha without app version.');
+  });
 
-test('it returns only git sha', function(assert) {
-  assert.expect(1);
+  test('it returns only git sha', function(assert) {
+    assert.expect(1);
 
-  config.APP.version = versionString;
-  let result = appVersion([], { shaOnly: true });
+    config.APP.version = versionString;
+    let result = appVersion([], { shaOnly: true });
 
-  assert.equal(result, shaOnlyString, 'Returns git sha without app version.');
+    assert.equal(result, shaOnlyString, 'Returns git sha without app version.');
+  });
 });
