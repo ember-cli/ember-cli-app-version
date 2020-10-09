@@ -1,54 +1,56 @@
-import { moduleForComponent, test } from 'ember-qunit';
-import hbs from 'htmlbars-inline-precompile';
+import { module, test } from 'qunit';
+import { setupRenderingTest } from 'ember-qunit';
+import { render } from '@ember/test-helpers';
+import { hbs } from 'ember-cli-htmlbars';
 
-moduleForComponent('Integration | Helper | {{app-version}}', {
-  integration: true
-});
+module('Integration | Helper | {{app-version}}', function(hooks) {
+  setupRenderingTest(hooks);
 
-test('it displays entire version', function(assert) {
-  assert.expect(1);
+  test('it displays entire version', async function(assert) {
+    assert.expect(1);
 
-  this.render(hbs`{{app-version}}`);
+    await render(hbs`{{app-version}}`);
 
-  assert.ok(this.$().text(), 'Version not empty');
-});
+    assert.ok(this.$().text(), 'Version not empty');
+  });
 
-test('it displays only app version (backwards compatible)', function(assert) {
-  assert.expect(1);
+  test('it displays only app version (backwards compatible)', async function(assert) {
+    assert.expect(1);
 
-  this.render(hbs`{{app-version hideSha=true}}`);
+    await render(hbs`{{app-version hideSha=true}}`);
 
-  assert.ok(this.$().text(), 'Version not empty');
-});
+    assert.ok(this.$().text(), 'Version not empty');
+  });
 
-test('it displays only app version', function(assert) {
-  assert.expect(1);
+  test('it displays only app version', async function(assert) {
+    assert.expect(1);
 
-  this.render(hbs`{{app-version versionOnly=true}}`);
+    await render(hbs`{{app-version versionOnly=true}}`);
 
-  assert.ok(this.$().text(), 'Version not empty');
-});
+    assert.ok(this.$().text(), 'Version not empty');
+  });
 
-test('it displays only app version extended', function(assert) {
-  assert.expect(1);
+  test('it displays only app version extended', async function(assert) {
+    assert.expect(1);
 
-  this.render(hbs`{{app-version versionOnly=true showExtended=true}}`);
+    await render(hbs`{{app-version versionOnly=true showExtended=true}}`);
 
-  assert.ok(this.$().text(), 'Version not empty');
-});
+    assert.ok(this.$().text(), 'Version not empty');
+  });
 
-test('it displays only git sha (backwards compatible)', function(assert) {
-  assert.expect(1);
+  test('it displays only git sha (backwards compatible)', async function(assert) {
+    assert.expect(1);
 
-  this.render(hbs`{{app-version hideVersion=true}}`);
+    await render(hbs`{{app-version hideVersion=true}}`);
 
-  assert.ok(this.$().text(), 'Version not empty');
-});
+    assert.ok(this.$().text(), 'Version not empty');
+  });
 
-test('it displays only git sha', function(assert) {
-  assert.expect(1);
+  test('it displays only git sha', async function(assert) {
+    assert.expect(1);
 
-  this.render(hbs`{{app-version shaOnly=true}}`);
+    await render(hbs`{{app-version shaOnly=true}}`);
 
-  assert.ok(this.$().text(), 'Version not empty');
+    assert.ok(this.$().text(), 'Version not empty');
+  });
 });
