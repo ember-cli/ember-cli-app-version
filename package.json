@@ -46,7 +46,7 @@
     "ember-try": "^1.2.1",
     "eslint": "^5.16.0",
     "eslint-plugin-ember": "^6.7.1",
-    "eslint-plugin-node": "^8.0.0",
+    "eslint-plugin-node": "^11.1.0",
     "loader.js": "^4.7.0",
     "release-it": "^14.0.2",
     "release-it-lerna-changelog": "^2.4.0"
