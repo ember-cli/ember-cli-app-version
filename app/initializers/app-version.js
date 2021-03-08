@@ -9,5 +9,5 @@ if (config.APP) {
 
 export default {
   name: 'App Version',
-  initialize: initializerFactory(name, version)
+  initialize: initializerFactory(name, version),
 };
