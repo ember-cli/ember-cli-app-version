@@ -1,6 +1,10 @@
 import { helper } from '@ember/component/helper';
 import config from '../config/environment';
-import { shaRegExp, versionRegExp, versionExtendedRegExp } from 'ember-cli-app-version/utils/regexp';
+import {
+  shaRegExp,
+  versionRegExp,
+  versionExtendedRegExp,
+} from 'ember-cli-app-version/utils/regexp';
 
 export function appVersion(_, hash = {}) {
   const version = config.APP.version;

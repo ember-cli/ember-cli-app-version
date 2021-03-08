@@ -9,7 +9,7 @@ function gitRepoVersion(options) {
   let includeDate = options.includeDate || false;
   let projectPath = options.projectPath || process.cwd();
   let info = getGitInfo(projectPath);
-  let packageVersion  = require(path.join(projectPath, 'package.json')).version;
+  let packageVersion = require(path.join(projectPath, 'package.json')).version;
 
   let prefix;
   if (info.tag && !(packageVersion && info.tag.includes(packageVersion))) {
@@ -24,7 +24,7 @@ function gitRepoVersion(options) {
 
   let sha = '';
   if (shaLength > 0 && info.sha) {
-    sha = '+' +  info.sha.substring(0, shaLength);
+    sha = '+' + info.sha.substring(0, shaLength);
   }
 
   let authorDate = includeDate ? ' ' + info.authorDate : '';
@@ -33,7 +33,7 @@ function gitRepoVersion(options) {
 }
 
 module.exports = {
-  name: 'ember-cli-app-version',
+  name: require('./package').name,
   config(env, baseConfig) {
     let config = this._super.config.apply(this, arguments);
 
@@ -54,5 +54,5 @@ module.exports = {
     }
 
     return config;
-  }
+  },
 };
