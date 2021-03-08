@@ -1,5 +1,19 @@
 # Changelog
 
+## v5.0.0 (2021-03-08)
+
+#### :boom: Breaking Change
+* [#331](https://github.com/ember-cli/ember-cli-app-version/pull/331) Drop support for Node 13 ([@loganrosen](https://github.com/loganrosen))
+* [#331](https://github.com/ember-cli/ember-cli-app-version/pull/331) Drop support for Ember < 3.12 ([@loganrosen](https://github.com/loganrosen))
+
+#### :house: Internal
+* [#331](https://github.com/ember-cli/ember-cli-app-version/pull/331) Update ember-cli blueprint to latest ([@loganrosen](https://github.com/loganrosen))
+
+#### Committers: 2
+- Logan Rosen ([@loganrosen](https://github.com/loganrosen))
+- [@dependabot-preview[bot]](https://github.com/apps/dependabot-preview)
+
+
 ## v4.0.0 (2020-10-09)
 
 #### :boom: Breaking Change
