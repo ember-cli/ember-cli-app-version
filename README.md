@@ -4,24 +4,21 @@ ember-cli-app-version [![Build Status](https://travis-ci.org/ember-cli/ember-cli
 Adds your Ember App's version to Info tab in Ember Inspector. The version is taken from your project's package.json#version.
 If you add build metadata to the version, this addon will automatically append SHA to the end of the version.
 
-Compatibility
-------------------------------------------------------------------------------
+## Compatibility
 
-* Ember.js v3.16 or above
-* Ember CLI v2.13 or above
-* Node.js v10 or above
+* Ember.js v3.28 or above
+* Ember CLI v3.28 or above
+* Node.js v14 or above
 
 
-Installation
-------------------------------------------------------------------------------
+## Installation
 
 ```
 ember install ember-cli-app-version
 ```
 
 
-Usage
-------------------------------------------------------------------------------
+## Usage
 
 ![Ember Inspector Info Tab](https://www.evernote.com/shard/s51/sh/c2f52608-bc17-4d5c-ac76-dec044eeb2e2/2f08de0cfb77217502cfc3a9188d84bf/res/3fb1d3d9-d809-48f6-9d3b-6e9a4af29892/skitch.png?resizeSmall&width=832)
 
@@ -52,13 +49,11 @@ if (process.env.SOURCE_VERSION) {
 }
 ```
 
-Contributing
-------------------------------------------------------------------------------
+## Contributing
 
 See the [Contributing](CONTRIBUTING.md) guide for details.
 
 
-License
-------------------------------------------------------------------------------
+## License
 
 This project is licensed under the [MIT License](LICENSE.md).
