@@ -20,7 +20,7 @@ module('Unit | Helper | app version', function (hooks) {
     assert.expect(1);
     config.APP.version = versionString;
 
-    assert.equal(appVersion(), versionString, 'Returns app version.');
+    assert.strictEqual(appVersion(), versionString, 'Returns app version.');
   });
 
   test('it returns only app version (backwards compatible)', function (assert) {
@@ -29,7 +29,7 @@ module('Unit | Helper | app version', function (hooks) {
     config.APP.version = versionString;
     let result = appVersion([], { hideSha: true });
 
-    assert.equal(
+    assert.strictEqual(
       result,
       versionOnlyString,
       'Returns app version without git sha.'
@@ -42,7 +42,7 @@ module('Unit | Helper | app version', function (hooks) {
     config.APP.version = versionString;
     let result = appVersion([], { versionOnly: true });
 
-    assert.equal(
+    assert.strictEqual(
       result,
       versionOnlyString,
       'Returns app version without git sha.'
@@ -55,7 +55,7 @@ module('Unit | Helper | app version', function (hooks) {
     config.APP.version = versionString;
     let result = appVersion([], { versionOnly: true, showExtended: true });
 
-    assert.equal(
+    assert.strictEqual(
       result,
       versionOnlyString + '-' + extendedTagOnlyString,
       'Returns app version extended without git sha.'
@@ -68,7 +68,7 @@ module('Unit | Helper | app version', function (hooks) {
     config.APP.version = standardVersionString;
     let result = appVersion([], { versionOnly: true, showExtended: true });
 
-    assert.equal(
+    assert.strictEqual(
       result,
       versionOnlyString,
       'Returns app version without git sha.'
@@ -81,7 +81,11 @@ module('Unit | Helper | app version', function (hooks) {
     config.APP.version = versionString;
     let result = appVersion([], { hideVersion: true });
 
-    assert.equal(result, shaOnlyString, 'Returns git sha without app version.');
+    assert.strictEqual(
+      result,
+      shaOnlyString,
+      'Returns git sha without app version.'
+    );
   });
 
   test('it returns only git sha', function (assert) {
@@ -90,6 +94,10 @@ module('Unit | Helper | app version', function (hooks) {
     config.APP.version = versionString;
     let result = appVersion([], { shaOnly: true });
 
-    assert.equal(result, shaOnlyString, 'Returns git sha without app version.');
+    assert.strictEqual(
+      result,
+      shaOnlyString,
+      'Returns git sha without app version.'
+    );
   });
 });
