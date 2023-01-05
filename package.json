@@ -15,7 +15,6 @@
   "files": [
     "addon/",
     "app/",
-    "config/environment.js",
     "index.js"
   ],
   "scripts": {
