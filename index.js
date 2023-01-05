@@ -2,6 +2,12 @@
 
 const getGitInfo = require('git-repo-info');
 const path = require('path');
+const fs = require('fs');
+const util = require('util');
+const { JSDOM } = require('jsdom');
+
+const readFile = util.promisify(fs.readFile);
+const writeFile = util.promisify(fs.writeFile);
 
 function gitRepoVersion(options) {
   options = options || {};
@@ -43,16 +49,65 @@ module.exports = {
 
     baseConfig.APP.name = this.project.pkg.name;
 
+    let version = gitRepoVersion(null, this.project.root);
+
+    if (baseConfig[this.name] && baseConfig[this.name].storeVersionInMeta) {
+      this._versionForMetaTag = version;
+      return config;
+    }
+
     if (baseConfig[this.name] && baseConfig[this.name].version) {
       baseConfig.APP.version = baseConfig[this.name].version;
       return config;
     }
 
-    let version = gitRepoVersion(null, this.project.root);
     if (version && baseConfig.APP) {
       baseConfig.APP.version = version;
     }
 
     return config;
   },
+
+  async postBuild(result) {
+    if (this._versionForMetaTag) {
+      let indexHtmlFileNames = ['index.html'];
+
+      if (this.app.tests) {
+        indexHtmlFileNames.push('tests/index.html');
+      }
+
+      await Promise.all(
+        indexHtmlFileNames.map((fileName) => {
+          let filePath = path.join(result.graph.outputPath, fileName);
+
+          return writeMetaTags(
+            filePath,
+            this.modulePrefix,
+            this._versionForMetaTag
+          );
+        })
+      );
+    }
+  },
 };
+
+async function writeMetaTags(filePath, tagName, tagContent) {
+  let htmlFile;
+
+  try {
+    htmlFile = await readFile(filePath);
+  } catch (e) {
+    console.warn(`index.html not found:`, JSON.stringify(e));
+    return;
+  }
+
+  let dom = new JSDOM(htmlFile.toString());
+
+  let versionMetaElement = dom.window.document.createElement('meta');
+  versionMetaElement.name = tagName;
+  versionMetaElement.content = tagContent;
+
+  dom.window.document.head.appendChild(versionMetaElement);
+
+  await writeFile(filePath, dom.serialize());
+}
