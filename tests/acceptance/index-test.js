@@ -9,7 +9,7 @@ module('Acceptance | index', function (hooks) {
   test('visiting /', async function (assert) {
     await visit('/');
 
-    assert.equal(currentURL(), '/');
+    assert.strictEqual(currentURL(), '/');
 
     assert.ok(config.APP.version, 'app version is present');
 
