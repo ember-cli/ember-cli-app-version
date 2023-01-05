@@ -41,7 +41,7 @@ Flags are `false` by default.
 
 When running on Heroku the `.git` folder is not present, making it impossible to fetch the `git SHA`. A workaround for this is adding the below in your `config/environment.js`:
 
-```
+```js
 // Heroku Git Hash support
 if (process.env.SOURCE_VERSION) {
   const pkg = require('../package.json');
