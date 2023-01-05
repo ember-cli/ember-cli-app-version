@@ -9,17 +9,15 @@ If you add build metadata to the version, this addon will automatically append S
 
 ## Compatibility
 
-* Ember.js v3.28 or above
-* Ember CLI v3.28 or above
-* Node.js v14 or above
-
+- Ember.js v3.28 or above
+- Ember CLI v3.28 or above
+- Node.js v14 or above
 
 ## Installation
 
 ```
 ember install ember-cli-app-version
 ```
-
 
 ## Usage
 
@@ -31,9 +29,9 @@ This addon provides `{{app-version}}` helper that allows you to show your curren
 
 The addon has flags to display parts of the version:
 
-* `{{app-version versionOnly=true}} // => 2.0.1`
-* `{{app-version versionOnly=true showExtended=true}} // => 2.0.1-alpha.1`
-* `{{app-version shaOnly=true}} // => <git SHA>`
+- `{{app-version versionOnly=true}} // => 2.0.1`
+- `{{app-version versionOnly=true showExtended=true}} // => 2.0.1-alpha.1`
+- `{{app-version shaOnly=true}} // => <git SHA>`
 
 Flags are `false` by default.
 
@@ -47,7 +45,7 @@ if (process.env.SOURCE_VERSION) {
   const pkg = require('../package.json');
   const hash = process.env.SOURCE_VERSION.substr(0, 7);
   ENV['ember-cli-app-version'] = {
-    version: `${pkg.version}+${hash}`
+    version: `${pkg.version}+${hash}`,
   };
 }
 ```
@@ -55,7 +53,6 @@ if (process.env.SOURCE_VERSION) {
 ## Contributing
 
 See the [Contributing](CONTRIBUTING.md) guide for details.
-
 
 ## License
 
