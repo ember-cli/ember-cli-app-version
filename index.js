@@ -35,24 +35,14 @@ function gitRepoVersion(options) {
 module.exports = {
   name: require('./package').name,
   config(env, baseConfig) {
-    let config = this._super.config.apply(this, arguments);
-
-    if (!baseConfig.APP) {
-      return config;
+    if (baseConfig.APP) {
+      baseConfig.APP.name = this.project.pkg.name;
     }
 
-    baseConfig.APP.name = this.project.pkg.name;
-
-    if (baseConfig[this.name] && baseConfig[this.name].version) {
-      baseConfig.APP.version = baseConfig[this.name].version;
-      return config;
-    }
-
-    let version = gitRepoVersion(null, this.project.root);
-    if (version && baseConfig.APP) {
-      baseConfig.APP.version = version;
-    }
-
-    return config;
+    return {
+      [this.pkg.name]: {
+        version: gitRepoVersion(null, this.project.root),
+      },
+    };
   },
 };

@@ -7,7 +7,7 @@ import {
 } from 'ember-cli-app-version/utils/regexp';
 
 export function appVersion(_, hash = {}) {
-  const version = config.APP.version;
+  const version = config['ember-cli-app-version'].version;
   // e.g. 1.0.0-alpha.1+4jds75hf
 
   // Allow use of 'hideSha' and 'hideVersion' For backwards compatibility
