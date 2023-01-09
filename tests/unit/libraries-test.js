@@ -3,6 +3,6 @@ import { module, test } from 'qunit';
 
 module('App Version', function () {
   test('version is available in config', function (assert) {
-    assert.ok(config['ember-cli-app-version'].appVersion);
+    assert.ok(config.APP.version);
   });
 });
