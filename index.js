@@ -2,12 +2,9 @@
 
 const getGitInfo = require('git-repo-info');
 const path = require('path');
-const fs = require('fs');
-const util = require('util');
-const { JSDOM } = require('jsdom');
+const fs = require('node:fs/promises');
 
-const readFile = util.promisify(fs.readFile);
-const writeFile = util.promisify(fs.writeFile);
+const { JSDOM } = require('jsdom');
 
 function gitRepoVersion(options) {
   options = options || {};
@@ -40,62 +37,42 @@ function gitRepoVersion(options) {
 
 module.exports = {
   name: require('./package').name,
-  config(env, baseConfig) {
-    let config = this._super.config.apply(this, arguments);
 
-    if (!baseConfig.APP) {
-      return config;
-    }
+  config() {
+    const appVersion = gitRepoVersion(null, this.project.root);
 
-    baseConfig.APP.name = this.project.pkg.name;
-
-    let version = gitRepoVersion(null, this.project.root);
-
-    if (baseConfig[this.name] && baseConfig[this.name].storeVersionInMeta) {
-      this._versionForMetaTag = version;
-      return config;
-    }
-
-    if (baseConfig[this.name] && baseConfig[this.name].version) {
-      baseConfig.APP.version = baseConfig[this.name].version;
-      return config;
-    }
-
-    if (version && baseConfig.APP) {
-      baseConfig.APP.version = version;
-    }
-
-    return config;
+    return {
+      'ember-cli-app-version': {
+        appVersion,
+      },
+    };
   },
 
   async postBuild(result) {
-    if (this._versionForMetaTag) {
-      let indexHtmlFileNames = ['index.html'];
+    let indexHtmlFileNames = ['index.html'];
 
-      if (this.app.tests) {
-        indexHtmlFileNames.push('tests/index.html');
-      }
-
-      await Promise.all(
-        indexHtmlFileNames.map((fileName) => {
-          let filePath = path.join(result.graph.outputPath, fileName);
-
-          return writeMetaTags(
-            filePath,
-            this.modulePrefix,
-            this._versionForMetaTag
-          );
-        })
-      );
+    if (this.app.tests) {
+      indexHtmlFileNames.push('tests/index.html');
     }
+
+    await Promise.all(
+      indexHtmlFileNames.map((fileName) => {
+        let filePath = path.join(result.graph.outputPath, fileName);
+
+        return writeAppVersion(
+          filePath,
+          gitRepoVersion(null, this.project.root)
+        );
+      })
+    );
   },
 };
 
-async function writeMetaTags(filePath, tagName, tagContent) {
+async function writeAppVersion(filePath, tagContent) {
   let htmlFile;
 
   try {
-    htmlFile = await readFile(filePath);
+    htmlFile = await fs.readFile(filePath);
   } catch (e) {
     console.warn(`index.html not found:`, JSON.stringify(e));
     return;
@@ -103,11 +80,15 @@ async function writeMetaTags(filePath, tagName, tagContent) {
 
   let dom = new JSDOM(htmlFile.toString());
 
-  let versionMetaElement = dom.window.document.createElement('meta');
-  versionMetaElement.name = tagName;
+  writeMetaTag(dom.window.document, tagContent);
+
+  await fs.writeFile(filePath, dom.serialize());
+}
+
+function writeMetaTag(document, tagContent) {
+  let versionMetaElement = document.createElement('meta');
+  versionMetaElement.name = 'ember-cli-app-version';
   versionMetaElement.content = tagContent;
 
-  dom.window.document.head.appendChild(versionMetaElement);
-
-  await writeFile(filePath, dom.serialize());
+  document.head.appendChild(versionMetaElement);
 }

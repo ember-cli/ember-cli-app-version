@@ -11,10 +11,10 @@ module('Acceptance | index', function (hooks) {
 
     assert.strictEqual(currentURL(), '/');
 
-    assert.ok(config.APP.version, 'app version is present');
+    const { appVersion } = config['ember-cli-app-version'];
 
-    assert
-      .dom('p.message')
-      .hasText(`Your app version is ${config.APP.version}`);
+    assert.ok(appVersion, 'app version is present');
+
+    assert.dom('p.message').hasText(`Your app version is ${appVersion}`);
   });
 });

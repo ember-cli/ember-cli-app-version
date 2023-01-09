@@ -35,26 +35,6 @@ The addon has flags to display parts of the version:
 
 Flags are `false` by default.
 
-## Configuration
-
-#### Options
-
-| Key                   | Type     | Default    | Description                                                                                          |
-|-----------------------|----------|------------|------------------------------------------------------------------------------------------------------|
-| `storeVersionInMeta`  | Boolean  | false      | Prevents unnecessary fingerprint changes by stroring the version in HTML meta tag instead of app JS  |
-
-### Example
-```
-// config/environment.js
-module.exports = function () {
-  return {
-    'ember-cli-app-version': {
-      storeVersionInMeta: true,
-    },
-  };
-};
-```
-
 ## Heroku
 
 When running on Heroku the `.git` folder is not present, making it impossible to fetch the `git SHA`. A workaround for this is adding the below in your `config/environment.js`:

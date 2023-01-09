@@ -1,13 +1,13 @@
 import { helper } from '@ember/component/helper';
-import config from '../config/environment';
 import {
   shaRegExp,
   versionRegExp,
   versionExtendedRegExp,
 } from 'ember-cli-app-version/utils/regexp';
+import getAppVersion from 'ember-cli-app-version/utils/get-app-version';
 
 export function appVersion(_, hash = {}) {
-  const version = config.APP.version;
+  const version = getAppVersion();
   // e.g. 1.0.0-alpha.1+4jds75hf
 
   // Allow use of 'hideSha' and 'hideVersion' For backwards compatibility
