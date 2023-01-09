@@ -14,19 +14,6 @@ module.exports = function (environment) {
       },
     },
 
-    'ember-cli-app-version': {
-      /**
-       * By default the version is stored in the app JS. And when including a git sha
-       * in the version this causes the fingerprint to change on every commit even when
-       * there are no other changes to the app JS.
-       *
-       * When storeVersionInMeta = true, the version will be stored in the html
-       * to prevent unecessary fingerprint changes. This allows an unchanged asset to
-       * be served from browser cache.
-       */
-      storeVersionInMeta: true,
-    },
-
     APP: {
       // Here you can pass flags/options to your application instance
       // when it is created
