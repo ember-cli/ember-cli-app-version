@@ -23,7 +23,7 @@ jobs:
         run: yarn install --frozen-lockfile
 
       - name: auto-dist-tag
-        run: npx auto-dist-tag@1 --write
+        run: npx auto-dist-tag --write
 
       - name: publish to npm
         run: npm publish
