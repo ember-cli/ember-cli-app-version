@@ -1,5 +1,23 @@
 # Changelog
 
+
+## v6.0.0 (2023-02-02)
+
+#### :boom: Breaking Change
+* [#388](https://github.com/ember-cli/ember-cli-app-version/pull/388) Drop support for Ember versions below v3.28, Drop support for Node versions below v14 ([@rpemberton](https://github.com/rpemberton))
+
+#### :rocket: Enhancement
+* [#398](https://github.com/ember-cli/ember-cli-app-version/pull/398) Remove use of `@ember/string` to avoid `ember-string.add-package` deprecation ([@bertdeblock](https://github.com/bertdeblock))
+
+#### :house: Internal
+* [#392](https://github.com/ember-cli/ember-cli-app-version/pull/392) Remove `config/environment.js` entry from `files` in `package.json` file ([@bertdeblock](https://github.com/bertdeblock))
+
+#### Committers: 3
+- Bert De Block ([@bertdeblock](https://github.com/bertdeblock))
+- Katie Gengler ([@kategengler](https://github.com/kategengler))
+- rpemberton ([@rpemberton](https://github.com/rpemberton))
+
+
 ## v5.0.0 (2021-03-08)
 
 #### :boom: Breaking Change
