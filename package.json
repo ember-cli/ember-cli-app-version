@@ -15,7 +15,8 @@
   "files": [
     "addon/",
     "app/",
-    "index.js"
+    "index.js",
+    "index.d.ts"
   ],
   "scripts": {
     "build": "ember build --environment=production",
