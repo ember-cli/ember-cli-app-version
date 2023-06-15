@@ -1,6 +1,20 @@
 # Changelog
 
 
+
+## v6.0.1 (2023-06-15)
+
+#### :bug: Bug Fix
+* [#410](https://github.com/ember-cli/ember-cli-app-version/pull/410) Loosen peer dependency to indicate support for ember 5 ([@jacobnlsn](https://github.com/jacobnlsn))
+
+#### :house: Internal
+* [#411](https://github.com/ember-cli/ember-cli-app-version/pull/411) Update addon blueprint ([@NullVoxPopuli](https://github.com/NullVoxPopuli))
+
+#### Committers: 2
+- Jacob Nelson ([@jacobnlsn](https://github.com/jacobnlsn))
+- [@NullVoxPopuli](https://github.com/NullVoxPopuli)
+
+
 ## v6.0.0 (2023-02-02)
 
 #### :boom: Breaking Change
