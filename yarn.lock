@@ -1366,7 +1366,7 @@
     ember-cli-version-checker "^5.1.2"
     semver "^7.3.5"
 
-"@embroider/macros@^0.50.0 || ^1.0.0", "@embroider/macros@^1.11.0":
+"@embroider/macros@^0.50.0 || ^1.0.0", "@embroider/macros@^1.11.0", "@embroider/macros@^1.11.1":
   version "1.11.1"
   resolved "https://registry.yarnpkg.com/@embroider/macros/-/macros-1.11.1.tgz#62eeb5bb7907ad01bdf750510c7f46c0192b6605"
   integrity sha512-yg4Pl5Sw26lKrrtLwk2UEgYkKkztq+Hatn67QYL5A3I3T4IE/bRA3o6xvIslrJNnhyER7jCc2pwusxt3O4HubA==

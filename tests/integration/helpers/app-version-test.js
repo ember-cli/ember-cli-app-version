@@ -9,7 +9,13 @@ module('Integration | Helper | {{app-version}}', function (hooks) {
   test('it displays entire version', async function (assert) {
     assert.expect(1);
 
-    await render(hbs`{{app-version}}`);
+    await render(hbs`
+      {{#if (macroDependencySatisfies "@embroider/core" "*")}}
+        {{(app-version)}}
+      {{else}}
+        {{app-version}}
+      {{/if}}
+    `);
 
     assert.ok(this.element.textContent, 'Version not empty');
   });
