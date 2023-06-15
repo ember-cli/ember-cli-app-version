@@ -1665,14 +1665,6 @@
   resolved "https://registry.yarnpkg.com/@jridgewell/set-array/-/set-array-1.1.2.tgz#7c6cf998d6d20b914c0a55a91ae928ff25965e72"
   integrity sha512-xnkseuNADM0gt2bs+BvhO0p78Mk762YnZdsuzFV018NoG1Sj1SCQvpSqa7XUaTam5vAGasABV9qXASMKnFMwMw==
 
-"@jridgewell/source-map@^0.3.2":
-  version "0.3.2"
-  resolved "https://registry.yarnpkg.com/@jridgewell/source-map/-/source-map-0.3.2.tgz#f45351aaed4527a298512ec72f81040c998580fb"
-  integrity sha512-m7O9o2uR8k2ObDysZYzdfhb08VuEml5oWGiosa1VdaPZ/A6QyPkAJuwN0Q1lhULOf6B7MtQmHENS743hWtCrgw==
-  dependencies:
-    "@jridgewell/gen-mapping" "^0.3.0"
-    "@jridgewell/trace-mapping" "^0.3.9"
-
 "@jridgewell/source-map@^0.3.3":
   version "0.3.3"
   resolved "https://registry.yarnpkg.com/@jridgewell/source-map/-/source-map-0.3.3.tgz#8108265659d4c33e72ffe14e33d6cc5eb59f2fda"
@@ -2303,7 +2295,7 @@ acorn-walk@^8.2.0:
   resolved "https://registry.yarnpkg.com/acorn-walk/-/acorn-walk-8.2.0.tgz#741210f2e2426454508853a2f44d0ab83b7f69c1"
   integrity sha512-k+iyHEuPgSw6SbuDpGQM+06HQUa04DZ3o+F6CSzXMvvI5KMvnaEqXe+YVe555R9nn6GPt404fos4wcgpw12SDA==
 
-acorn@^8.5.0, acorn@^8.7.0, acorn@^8.7.1:
+acorn@^8.7.0, acorn@^8.7.1:
   version "8.8.1"
   resolved "https://registry.yarnpkg.com/acorn/-/acorn-8.8.1.tgz#0a3f9cbecc4ec3bea6f0a80b66ae8dd2da250b73"
   integrity sha512-7zFpHzhnqYKrkYdUjF1HI1bzd0VygEGX8lFk4k5zVMqHEoES+P+7TKI+EvLO9WVMJ8eekdO0aDEK044xTXwPPA==
@@ -3253,7 +3245,7 @@ broccoli-persistent-filter@^2.2.1, broccoli-persistent-filter@^2.3.0:
     sync-disk-cache "^1.3.3"
     walk-sync "^1.0.0"
 
-broccoli-persistent-filter@^3.1.2, broccoli-persistent-filter@^3.1.3:
+broccoli-persistent-filter@^3.1.2:
   version "3.1.3"
   resolved "https://registry.yarnpkg.com/broccoli-persistent-filter/-/broccoli-persistent-filter-3.1.3.tgz#aca815bf3e3b0247bd0a7b567fdb0d0e08c99cc2"
   integrity sha512-Q+8iezprZzL9voaBsDY3rQVl7c7H5h+bvv8SpzCZXPZgfBFCbx7KFQ2c3rZR6lW5k4Kwoqt7jG+rZMUg67Gwxw==
@@ -3341,22 +3333,6 @@ broccoli-stew@^3.0.0:
     rsvp "^4.8.5"
     symlink-or-copy "^1.2.0"
     walk-sync "^1.1.3"
-
-broccoli-terser-sourcemap@^4.1.0:
-  version "4.1.0"
-  resolved "https://registry.yarnpkg.com/broccoli-terser-sourcemap/-/broccoli-terser-sourcemap-4.1.0.tgz#5f37441b64a3b6bfb0c67e9af232259c9576f115"
-  integrity sha512-zkNnjsAbP+M5rG2aMM1EE4BmXPUSxFKmtLUkUs2D1DLTOJQoF1xlOjGWjjKYCFy5tw8t4+tgGJ+HVa2ucJZ8sw==
-  dependencies:
-    async-promise-queue "^1.0.5"
-    broccoli-plugin "^4.0.3"
-    debug "^4.1.0"
-    lodash.defaultsdeep "^4.6.1"
-    matcher-collection "^2.0.1"
-    source-map-url "^0.4.0"
-    symlink-or-copy "^1.3.1"
-    terser "^5.3.0"
-    walk-sync "^2.2.0"
-    workerpool "^6.0.0"
 
 broccoli@^3.5.2:
   version "3.5.2"
@@ -3682,7 +3658,7 @@ clean-css-promise@^0.1.0:
     clean-css "^3.4.5"
     pinkie-promise "^2.0.0"
 
-clean-css@^3.4.28, clean-css@^3.4.5:
+clean-css@^3.4.5:
   version "3.4.28"
   resolved "https://registry.yarnpkg.com/clean-css/-/clean-css-3.4.28.tgz#bf1945e82fc808f55695e6ddeaec01400efd03ff"
   integrity sha512-aTWyttSdI2mYi07kWqHi24NUU9YlELFKGOAgFzZjDN1064DMAOy2FBuoyGmkKRlXkbpXd0EVHmiVkbKhKoirTw==
@@ -4575,15 +4551,6 @@ ember-cli-babel@^7.13.0, ember-cli-babel@^7.13.2, ember-cli-babel@^7.22.1, ember
     rimraf "^3.0.1"
     semver "^5.5.0"
 
-ember-cli-clean-css@^2.0.0:
-  version "2.0.0"
-  resolved "https://registry.yarnpkg.com/ember-cli-clean-css/-/ember-cli-clean-css-2.0.0.tgz#84f9fb7245f4b0ccd7194986a2aa661df3140268"
-  integrity sha512-je5QnB/Ms5641Oh8tv2CWKXGWeeiXxOGpqIuLq/XybERV6CdRGrQ7jNiAWBc4/P6vdoIqw5kjrC9nxVGwWWs9Q==
-  dependencies:
-    broccoli-persistent-filter "^3.1.3"
-    clean-css "^3.4.28"
-    json-stable-stringify "^1.0.1"
-
 ember-cli-dependency-checker@^3.3.1:
   version "3.3.1"
   resolved "https://registry.yarnpkg.com/ember-cli-dependency-checker/-/ember-cli-dependency-checker-3.3.1.tgz#16b44d7a1a1e946f59859fad97f32e616d78323a"
@@ -4664,13 +4631,6 @@ ember-cli-string-utils@^1.1.0:
   version "1.1.0"
   resolved "https://registry.yarnpkg.com/ember-cli-string-utils/-/ember-cli-string-utils-1.1.0.tgz#39b677fc2805f55173735376fcef278eaa4452a1"
   integrity sha512-PlJt4fUDyBrC/0X+4cOpaGCiMawaaB//qD85AXmDRikxhxVzfVdpuoec02HSiTGTTB85qCIzWBIh8lDOiMyyFg==
-
-ember-cli-terser@^4.0.2:
-  version "4.0.2"
-  resolved "https://registry.yarnpkg.com/ember-cli-terser/-/ember-cli-terser-4.0.2.tgz#c436a9e4159f76a615b051cba0584844652b7dcd"
-  integrity sha512-Ej77K+YhCZImotoi/CU2cfsoZaswoPlGaM5TB3LvjvPDlVPRhxUHO2RsaUVC5lsGeRLRiHCOxVtoJ6GyqexzFA==
-  dependencies:
-    broccoli-terser-sourcemap "^4.1.0"
 
 ember-cli-test-loader@^3.0.0:
   version "3.0.0"
@@ -7914,11 +7874,6 @@ lodash.debounce@^4.0.8:
   version "4.0.8"
   resolved "https://registry.yarnpkg.com/lodash.debounce/-/lodash.debounce-4.0.8.tgz#82d79bff30a67c4005ffd5e2515300ad9ca4d7af"
   integrity sha512-FT1yDzDYEoYWhnSGnpE/4Kj1fLZkDFyqRb7fNt6FdYOSxlUWAtp42Eh6Wb0rGIv/m9Bgo7x4GhQbm5Ys4SG5ow==
-
-lodash.defaultsdeep@^4.6.1:
-  version "4.6.1"
-  resolved "https://registry.yarnpkg.com/lodash.defaultsdeep/-/lodash.defaultsdeep-4.6.1.tgz#512e9bd721d272d94e3d3a63653fa17516741ca6"
-  integrity sha512-3j8wdDzYuWO3lM3Reg03MuQR957t287Rpcxp1njpEa8oDrikb+FwGdW3n+FELh/A6qib6yPit0j/pv9G/yeAqA==
 
 lodash.find@^4.5.1:
   version "4.6.0"
@@ -11334,16 +11289,6 @@ terser@^5.16.8:
     commander "^2.20.0"
     source-map-support "~0.5.20"
 
-terser@^5.3.0:
-  version "5.16.1"
-  resolved "https://registry.yarnpkg.com/terser/-/terser-5.16.1.tgz#5af3bc3d0f24241c7fb2024199d5c461a1075880"
-  integrity sha512-xvQfyfA1ayT0qdK47zskQgRZeWLoOQ8JQ6mIgRGVNwZKdQMU+5FkCBjmv4QjcrTzyZquRw2FVtlJSRUmMKQslw==
-  dependencies:
-    "@jridgewell/source-map" "^0.3.2"
-    acorn "^8.5.0"
-    commander "^2.20.0"
-    source-map-support "~0.5.20"
-
 testem@^3.10.1:
   version "3.10.1"
   resolved "https://registry.yarnpkg.com/testem/-/testem-3.10.1.tgz#bab8a83bec11e975f7d1e47e924eed6135957e5b"
@@ -12172,11 +12117,6 @@ workerpool@^3.1.1:
     "@babel/core" "^7.3.4"
     object-assign "4.1.1"
     rsvp "^4.8.4"
-
-workerpool@^6.0.0:
-  version "6.3.1"
-  resolved "https://registry.yarnpkg.com/workerpool/-/workerpool-6.3.1.tgz#80a9b76e70556acfb1457a3984f8637717f7cdee"
-  integrity sha512-0x7gJm1rhpn5SPG9NENOxPtbfUZZtK/qOg6gEdSqeDBA3dTeR91RJqSPjccPRCkhNfrnnl/dWxSSj5w9CtdzNA==
 
 workerpool@^6.4.0:
   version "6.4.0"
