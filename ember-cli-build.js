@@ -21,5 +21,13 @@ module.exports = function (defaults) {
         package: 'qunit',
       },
     ],
+    pacakgeRules: [
+      {
+        package: 'dummy',
+        // Anyone already on embroider can import this if they need it.
+        // strict mode is well within reach for folks on embroider.
+        helpers: { '{{app-version}}': { safeToIgnore: true } },
+      },
+    ],
   });
 };
