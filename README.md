@@ -11,7 +11,7 @@ If you add build metadata to the version, this addon will automatically append S
 
 - Ember.js v3.28 or above
 - Ember CLI v3.28 or above
-- Node.js v14 or above
+- Node.js v18 or above
 
 ## Installation
 
