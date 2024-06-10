@@ -2,6 +2,21 @@
 
 
 
+
+## v7.0.0 (2024-06-10)
+
+#### :boom: Breaking Change
+* [#415](https://github.com/ember-cli/ember-cli-app-version/pull/415) Drop node < 18, unblocks 'Floating Dependencies' on #414 ([@NullVoxPopuli](https://github.com/NullVoxPopuli))
+
+#### :rocket: Enhancement
+* [#416](https://github.com/ember-cli/ember-cli-app-version/pull/416) Do not use Ember Barrel file import ([@NullVoxPopuli](https://github.com/NullVoxPopuli))
+
+#### :house: Internal
+* [#414](https://github.com/ember-cli/ember-cli-app-version/pull/414) Expand ember-try matrix ([@NullVoxPopuli](https://github.com/NullVoxPopuli))
+
+#### Committers: 1
+- [@NullVoxPopuli](https://github.com/NullVoxPopuli)
+
 ## v6.0.1 (2023-06-15)
 
 #### :bug: Bug Fix
