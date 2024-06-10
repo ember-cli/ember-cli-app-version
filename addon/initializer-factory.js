@@ -1,6 +1,4 @@
-import Ember from 'ember';
-
-const { libraries } = Ember;
+import { libraries } from '@ember/-internals/metal';
 
 export default function initializerFactory(name, version) {
   let registered = false;
