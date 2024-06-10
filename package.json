@@ -34,6 +34,7 @@
   },
   "dependencies": {
     "ember-cli-babel": "^7.26.11",
+    "ember-get-config": "^2.1.1",
     "git-repo-info": "^2.1.1"
   },
   "devDependencies": {
@@ -42,6 +43,7 @@
     "@ember/optional-features": "^2.0.0",
     "@ember/string": "^3.1.1",
     "@ember/test-helpers": "^2.7.0",
+    "@embroider/macros": "^1.11.1",
     "@embroider/test-setup": "^3.0.1",
     "@glimmer/component": "^1.1.2",
     "@glimmer/tracking": "^1.1.2",
@@ -49,13 +51,13 @@
     "concurrently": "^8.2.0",
     "ember-auto-import": "^2.6.3",
     "ember-cli": "^4.12.0",
-    "ember-cli-dependency-checker": "^3.3.1",
+    "ember-cli-dependency-checker": "^3.3.2",
     "ember-cli-htmlbars": "^6.2.0",
     "ember-cli-inject-live-reload": "^2.1.0",
     "ember-load-initializers": "^2.1.2",
     "ember-page-title": "^7.0.0",
     "ember-qunit": "^6.0.0",
-    "ember-resolver": "^10.1.0",
+    "ember-resolver": "^10.1.1",
     "ember-source": "^4.12.0",
     "ember-source-channel-url": "^3.0.0",
     "ember-template-lint": "^5.10.1",
